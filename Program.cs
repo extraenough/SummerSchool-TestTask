@@ -16,7 +16,8 @@ namespace SummerSchool_TestTask
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new mainForm());
+            gameController game = new gameController(3);
+            Application.Run();
         }
     }
 }

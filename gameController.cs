@@ -14,17 +14,20 @@ namespace SummerSchool_TestTask
         private boardView view;
         private List<String> history;
 
-        public gameController(int psize = 3) {
-            view = new boardView();
+        public gameController(int psize = 3) {            
             history = new List<string>();
             cellRemoved_x = -1;
             cellRemoved_y = -1;
+            board = new int[3][];
+            for (int i = 0; i < 3; i++) { board[i] = new int[3]; }
 
-            size = psize;
+
+                size = psize;
             boardFill();
-            boardShuffle((new Random()).Next(size, 3*size));
+            cellsShuffle((new Random()).Next(size, 3 * size));
             firstCellRemove();
-            game_start();
+            view = new boardView(board, size);
+            //game_start();
         }
 
         // game
@@ -36,10 +39,17 @@ namespace SummerSchool_TestTask
         }
         
         // board fill
-        private void boardFill() { for (int i = 0; i < size; i++) for (int j = 0; j < size; j++) { board[i][j] = i + j; } }
+        private void boardFill() {
+            int count = 1;
+            for (int i = 0; i < size; i++) for (int j = 0; j < size; j++) { 
+                board[j][i] = count;
+                count++;
+            } 
+        }
 
         // board shuffle
-        private void boardShuffle(int pmovesCount) {
+        private void cellsShuffle(int pmovesCount)
+        {
             Random randomizer = new Random();
             int cell1_x = -1, cell1_y = -1;
             int cell2_x = -1, cell2_y = -1;
@@ -51,13 +61,15 @@ namespace SummerSchool_TestTask
                 do{
                     cell2_y = randomizer.Next(0, size);
                 }while(cell1_y == cell2_y);
-                cellsSwap(cell1_x, cell1_y, cell2_x, cell2_y);
+                cellsSwap(cell1_y, cell1_x, cell2_y, cell2_x);
             }
         }
 
-        private void cellsSwap(int pcell1_x, int pcell1_y, int pcell2_x, int pcell2_y){
-            board[pcell1_x][pcell1_y] += board[pcell2_x][pcell2_y];
-            board[pcell2_x][pcell2_y] = board[pcell1_x][pcell1_y] - board[pcell2_x][pcell2_y];
+        private void cellsSwap(int pcell1_y, int pcell1_x, int pcell2_y,int pcell2_x)
+        {
+            int buffer = board[pcell1_y][pcell1_x];
+            board[pcell1_y][pcell1_x] = board[pcell2_y][pcell2_x];
+            board[pcell2_y][pcell2_x] = buffer;
         }
 
         private void firstCellRemove(){

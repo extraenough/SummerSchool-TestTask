@@ -41,3 +41,13 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+bin/Debug/SummerSchool-TestTask.exe
+*.pdb
+obj/Debug/SummerSchool-TestTask.exe
+*.resources
+obj/Debug/SummerSchool-TestTask.csproj.GenerateResource.Cache
+obj/Debug/SummerSchool-TestTask.csprojResolveAssemblyReference.cache
+obj/Debug/SummerSchool-TestTask.csproj.FileListAbsolute.txt
+obj/Debug/SummerSchool-TestTask.csproj.FileListAbsolute.txt
+*.txt
+obj/Debug/SummerSchool-TestTask.csproj.FileListAbsolute.txt

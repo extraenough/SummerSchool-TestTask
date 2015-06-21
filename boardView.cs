@@ -8,10 +8,12 @@ namespace SummerSchool_TestTask
 {
     class boardView
     {
-        private mainForm form;
+        public mainForm form;
 
-        public boardView() {
+        public boardView(int[][] pboard, int psize) {
             form = new mainForm();
+            form.Show();
+            form.boardDraw(pboard, psize);
         }
 
 
