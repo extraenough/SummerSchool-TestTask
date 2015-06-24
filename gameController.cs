@@ -22,7 +22,7 @@ namespace SummerSchool_TestTask
             for (int i = 0; i < 3; i++) { board[i] = new int[3]; }
 
 
-                size = psize;
+            size = psize;
             boardFill();
             cellsShuffle((new Random()).Next(size, 3 * size));
             firstCellRemove();

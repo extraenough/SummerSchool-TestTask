@@ -137,8 +137,8 @@
             this.pbxCanvas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbxCanvas.TabIndex = 2;
             this.pbxCanvas.TabStop = false;
-            this.pbxCanvas.Click += new System.EventHandler(this.pbxCanvas_Click);
             this.pbxCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pbxCanvas_Paint);
+            this.pbxCanvas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbxCanvas_MouseClick);
             // 
             // mainForm
             // 
